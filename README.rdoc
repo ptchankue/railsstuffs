@@ -265,3 +265,6 @@ vendor
 
 
 `bundle install`
+
+`rails server`
+
