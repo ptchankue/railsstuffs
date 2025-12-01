@@ -1,38 +1,65 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
+git_source(:github) { |repo| "github.com{repo}.git" }
 
-gem 'rails', '3.2.1'
+# Specify your Ruby version
+ruby "~> 3.2.3" # Use your specific Ruby version here
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Core Rails and Database
+gem "rails", "~> 7.1.0" # Use pessimistic locking for predictable updates
+gem "pg", "~> 1.5" # Use postgresql in production
 
-gem 'sqlite3'
+# Web Server
+gem "puma", "~> 7.1.0"
 
+# Asset Management
+# Use Vite, Webpacker, or the default Sprockets as per your project setup.
+# If using Sprockets, default gems are:
+gem "sprockets-rails", "~> 3.2"
+# gem "jsbundling-rails" # if using esbuild, etc.
+# gem "cssbundling-rails" # if using tailwind, etc.
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+# Database caching (optional, but recommended for performance)
+# gem "redis-rails", "~> 6.0"
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
+# Background jobs (optional)
+# gem "sidekiq", "~> 7.2"
 
-  gem 'uglifier', '>= 1.0.3'
+# Authentication (example)
+# gem "devise", "~> 4.9"
+
+# Group gems for specific environments to reduce memory usage and load times
+group :development, :test do
+  # Debugging tools
+  gem "byebug", platforms: %i[mri windows]
+  gem "debug", platforms: :mri
+
+  # Performance analysis (development only)
+  # Helps detect N+1 queries
+  gem "bullet", "~> 8.1.0"
+
+  # Code quality and style
+  # gem "rubocop", "~> 1.62", require: false # Code style linter
 end
 
-gem 'jquery-rails'
+group :development do
+  # Add development-specific gems here
+  # gem "web-console", "~> 4.2"
+end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :test do
+  # Testing frameworks and tools
+  # gem "rspec-rails", "~> 6.1"
+  # gem "factory_bot_rails", "~> 6.4"
+  # gem "faker", "~> 2.23"
+  # gem "database_cleaner-activerecord" # For faster test database cleaning
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+group :production do
+  # Performance monitoring (example)
+  # gem "newrelic_rpm"
+  # Serving static assets from a CDN/object storage might require specific gems
+end
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+# Manually require gems only when needed using `require: false`
+# This avoids loading the gem into memory on startup unless explicitly called
+# gem "aws-sdk-s3", require: false
