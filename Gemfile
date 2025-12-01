@@ -8,6 +8,8 @@ ruby "~> 3.2.3" # Use your specific Ruby version here
 gem "rails", "~> 7.1.0" # Use pessimistic locking for predictable updates
 gem "pg", "~> 1.5" # Use postgresql in production
 
+gem "sqlite3", "~> 1.7.3"
+
 # Web Server
 gem "puma", "~> 7.1.0"
 
