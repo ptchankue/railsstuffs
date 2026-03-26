@@ -1,0 +1,28 @@
+<% content_for :page_title, "Home — Rails Stuffs" %>
+
+<div class="page-hero">
+  <h1>A small tour of Ruby on Rails</h1>
+  <p class="lede">
+    This app shows how routing, controllers, models, views, and the asset pipeline fit together in a typical Rails project.
+  </p>
+</div>
+
+<div class="card-grid">
+  <article class="card">
+    <h2>About Rails</h2>
+    <p>How MVC, REST, and convention over configuration shape a request.</p>
+    <%= link_to "Read overview →", about_path, class: "card__link" %>
+  </article>
+
+  <article class="card">
+    <h2>Dynamic page</h2>
+    <p>Data from the controller appears in the view on each refresh.</p>
+    <%= link_to "See server time →", demo_time_path, class: "card__link" %>
+  </article>
+
+  <article class="card">
+    <h2>Articles (CRUD)</h2>
+    <p>Active Record, strong parameters, forms, and redirects with flash.</p>
+    <%= link_to "Open articles →", articles_path, class: "card__link" %>
+  </article>
+</div>

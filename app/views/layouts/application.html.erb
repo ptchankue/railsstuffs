@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>FirstApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= content_for?(:page_title) ? yield(:page_title) : "Rails Stuffs — Example app" %></title>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <%= link_to "Rails Stuffs", root_path, class: "site-logo" %>
+      <nav class="site-nav" aria-label="Main">
+        <%= nav_link_to "Home", root_path %>
+        <%= nav_link_to "About Rails", about_path %>
+        <%= nav_link_to "Server time", demo_time_path, match_controller: :demo %>
+        <%= nav_link_to "Articles", articles_path, match_controller: :articles %>
+      </nav>
+    </div>
+  </header>
 
-<%= yield %>
+  <main class="site-main">
+    <%= render "shared/flash" %>
+    <%= yield %>
+  </main>
 
+  <footer class="site-footer">
+    <p>Rails <%= Rails.version %> · Ruby <%= RUBY_VERSION %> · Example project</p>
+  </footer>
 </body>
 </html>

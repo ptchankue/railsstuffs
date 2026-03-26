@@ -1,0 +1,30 @@
+<% content_for :page_title, "Server time — Rails Stuffs" %>
+
+<div class="page-hero">
+  <h1>Rendered on the server</h1>
+  <p class="lede">
+    The values below were set in <code>DemoController#time</code> and passed to this template as instance variables.
+  </p>
+</div>
+
+<p class="demo-lede">
+  Refresh the page: the clock updates because the HTML is built fresh for each request (unless you add caching later).
+</p>
+
+<div class="meta-panel">
+  <dl>
+    <dt>Server time (<code>Time.current</code>)</dt>
+    <dd><%= @server_time.strftime("%Y-%m-%d %H:%M:%S %Z") %></dd>
+    <dt>Rails version</dt>
+    <dd><%= @rails_version %></dd>
+    <dt>Ruby version</dt>
+    <dd><%= @ruby_version %></dd>
+  </dl>
+</div>
+
+<pre class="code-block"># app/controllers/demo_controller.rb
+def time
+  @server_time = Time.current
+  @rails_version = Rails.version
+  @ruby_version = RUBY_VERSION
+end</pre>

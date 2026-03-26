@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all # Fetch all articles from the database
+    @articles = Article.recent
   end
 
   # GET /articles/:id

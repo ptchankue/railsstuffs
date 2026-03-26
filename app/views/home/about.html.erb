@@ -1,0 +1,27 @@
+<% content_for :page_title, "About Rails — Rails Stuffs" %>
+
+<div class="page-hero">
+  <h1>What you are looking at</h1>
+  <p class="lede">A quick map of how a browser request becomes HTML in Rails.</p>
+</div>
+
+<div class="prose">
+  <h2>Model–View–Controller</h2>
+  <p>
+    <strong>Routes</strong> in <code>config/routes.rb</code> decide which controller action runs.
+    The <strong>controller</strong> loads or saves data through <strong>models</strong> (Active Record) and picks a <strong>view</strong> template to render.
+  </p>
+
+  <h2>This project in particular</h2>
+  <ul>
+    <li><code>HomeController</code> — static-style pages with no database query.</li>
+    <li><code>DemoController#time</code> — passes Ruby values from the server into the template.</li>
+    <li><code>ArticlesController</code> — full resource lifecycle: list, show, create, update, destroy.</li>
+  </ul>
+
+  <h2>Convention</h2>
+  <p>
+    File names and class names follow conventions (for example <code>ArticlesController</code> and <code>app/views/articles/</code>),
+    so Rails can wire things up with minimal configuration.
+  </p>
+</div>

@@ -1,25 +1,29 @@
-<h1>Articles</h1>
+<% content_for :page_title, "Articles — Rails Stuffs" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body Snippet</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="page-toolbar">
+  <h1>Articles</h1>
+  <%= link_to "New article", new_article_path, class: "btn btn--primary" %>
+</div>
 
-  <tbody>
+<% if @articles.any? %>
+  <ul class="article-list">
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= truncate(article.body, length: 100) %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li class="article-list__item">
+        <div>
+          <h2><%= link_to article.title, article %></h2>
+          <p class="article-list__snippet"><%= truncate(article.body, length: 140) %></p>
+        </div>
+        <div class="article-list__actions">
+          <%= link_to "Read", article, class: "btn btn--ghost btn--small" %>
+          <%= link_to "Edit", edit_article_path(article), class: "btn btn--ghost btn--small" %>
+          <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Delete this article?" }, class: "btn btn--danger btn--small" %>
+        </div>
+      </li>
     <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New Article', new_article_path %>
+  </ul>
+<% else %>
+  <div class="empty-state">
+    <p>No articles yet. Create one to see create → redirect → flash in action.</p>
+    <%= link_to "New article", new_article_path, class: "btn btn--primary" %>
+  </div>
+<% end %>

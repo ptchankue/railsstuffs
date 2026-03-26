@@ -1,0 +1,10 @@
+<% content_for :page_title, "Edit #{@article.title} — Rails Stuffs" %>
+
+<div class="page-toolbar">
+  <h1>Edit article</h1>
+  <%= link_to "View article", article_path(@article), class: "btn btn--ghost btn--small" %>
+</div>
+
+<div class="form-panel">
+  <%= render "form", article: @article %>
+</div>

@@ -17,6 +17,7 @@ gem "puma", "~> 7.1.0"
 # Use Vite, Webpacker, or the default Sprockets as per your project setup.
 # If using Sprockets, default gems are:
 gem "sprockets-rails", "~> 3.2"
+gem "jquery-rails", "~> 4.6"
 # gem "jsbundling-rails" # if using esbuild, etc.
 # gem "cssbundling-rails" # if using tailwind, etc.
 
