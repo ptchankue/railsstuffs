@@ -268,3 +268,18 @@ vendor
 
 `rails server`
 
+
+rack
+---
+Rack provides a minimal, modular, and adaptable interface for developing web applications in Ruby.
+By wrapping HTTP requests and responses in the simplest way possible, it unifies and distills the bridge between web servers, web frameworks, and web application into a single method call.
+
+nokogiri
+----
+Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby.
+It provides a sensible, easy-to-understand API for reading, writing, modifying, and querying documents.
+It is fast and standards-compliant by relying on native parsers like libxml2, libgumbo, and xerces.
+
+puma
+----
+Puma is a small library that provides a very fast and concurrent HTTP 1.1 server for Ruby web applications. It is designed for running Rack apps only
